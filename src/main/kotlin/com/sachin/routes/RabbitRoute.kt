@@ -1,13 +1,13 @@
 package com.sachin.routes
 
-import com.sachin.data.model.Rabbit
+import com.sachin.data.models.Rabbit
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
 
-private const val BASE_URL = "http://192.168.0.1:8080"
+private const val BASE_URL = "http://192.168.0.105:8080"
 
 private val rabbits = listOf(
     Rabbit("Carl", "A cute brown rabbit", "$BASE_URL/rabbits/rabbit1.jpg"),
@@ -20,10 +20,18 @@ private val rabbits = listOf(
 
 fun Route.randomRabbit() {
 
+    get("/") {
+        call.respond(
+            HttpStatusCode.OK,
+            mapOf("name" to "Sachin", "Age" to "23","Number" to "6203205636")
+        )
+    }
+
     get ("/randomrabbit") {
         call.respond(
             HttpStatusCode.OK,
             rabbits.random()
         )
     }
+
 }

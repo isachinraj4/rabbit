@@ -1,4 +1,4 @@
-package com.sachin.data.model
+package com.sachin.data.models
 
 import kotlinx.serialization.Serializable
 
